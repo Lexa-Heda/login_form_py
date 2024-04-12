@@ -66,7 +66,7 @@ class Server:
                 elif purpose == "login":
                     response: str = "ok"
                     self.send_data(response)
-                    user_data: tuple = self.socket.recv(1024).decode()
+                    user_data = self.socket.recv(1024).decode().split(",")
                     response: bool = self.get_member(user_data[0], user_data[1])
 
                 else:
